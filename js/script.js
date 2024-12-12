@@ -1,4 +1,6 @@
-console.log("Hello, World!");
+
+const Game = (function() {
+
     const Board = (function() {
         // Board
         const board = [];
@@ -47,6 +49,8 @@ console.log("Hello, World!");
             resetBoard
         };
     })();
+
+
     const Players = (function() {
         // Players and their names
         // The first player automatically holds the 'X' marker
@@ -96,6 +100,8 @@ console.log("Hello, World!");
             switchActivePlayer
         };
     })();
+
+
     // Play a round of the game
     // Position is going to be an array containing
     // the 2D coordinates of the specific cell that
@@ -112,3 +118,18 @@ console.log("Hello, World!");
         ** and handle that logic
         */
     }
+
+    return {
+        playRound: playRound,
+        players: {
+            getPlayerOne: Players.getPlayerOne,
+            getPlayerTwo: Players.getPlayerTwo,
+            setPlayerNames: Players.setPlayerNames,
+            getActivePlayer: Players.getActivePlayer,
+        },
+        board: {
+            getCell: Board.getCell,
+            resetBoard: Board.resetBoard,
+        },
+    };
+})();
