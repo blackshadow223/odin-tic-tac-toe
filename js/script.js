@@ -96,3 +96,19 @@ console.log("Hello, World!");
             switchActivePlayer
         };
     })();
+    // Play a round of the game
+    // Position is going to be an array containing
+    // the 2D coordinates of the specific cell that
+    // needs to be marked
+    function playRound(row, column) {
+        const marker = Players.getActivePlayer().marker;
+
+        if (Board.setCell(row, column, marker)) {
+            Players.switchActivePlayer();
+        }
+
+        /*
+        ** Here is where we would check for a winner
+        ** and handle that logic
+        */
+    }
