@@ -47,3 +47,52 @@ console.log("Hello, World!");
             resetBoard
         };
     })();
+    const Players = (function() {
+        // Players and their names
+        // The first player automatically holds the 'X' marker
+        const player1 = {
+            name: "Player 1",
+            marker: "X"
+        };
+
+        const player2 = {
+            name: "Player 2",
+            marker: "O"
+        };
+
+        // Each player's turn
+        let turn = player1;
+
+        function getPlayerOne() {
+            return { name: player1.name, marker: player1.marker };
+        }
+
+        function getPlayerTwo() {
+            return { name: player2.name, marker: player2.marker };
+        }
+
+        function setPlayerNames(name1="Player 1", name2="Player 2") {
+            player1.name = name1;
+            player2.name = name2;
+        }
+
+        function getActivePlayer() {
+            return { name: turn.name, marker: turn.marker };
+        }
+
+        function switchActivePlayer() {
+            if (turn === player1) {
+                turn = player2;
+            } else {
+                turn = player1;
+            }
+        }
+
+        return {
+            getPlayerOne,
+            getPlayerTwo,
+            setPlayerNames,
+            getActivePlayer,
+            switchActivePlayer
+        };
+    })();
