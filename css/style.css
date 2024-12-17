@@ -29,6 +29,7 @@ button {
     align-items: center;
     gap: 16px;
     padding: 32px;
+    text-transform: uppercase;
 }
 
 .container > h1,
