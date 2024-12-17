@@ -46,6 +46,14 @@ button {
     justify-content: space-between;
 }
 
+.player-names > .active::before {
+    content: '> ';
+}
+
+.player-names > .active::after {
+    content: ' <';
+}
+
 .game {
     display: grid;
     grid-template: repeat(3, 1fr) / repeat(3, 1fr);
