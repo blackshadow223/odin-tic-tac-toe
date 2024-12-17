@@ -40,3 +40,43 @@ button {
 .container > #reset {
     justify-self: end;
 }
+
+.player-names {
+    display: flex;
+    justify-content: space-between;
+}
+
+.game {
+    display: grid;
+    grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+}
+
+.game-button {
+    padding: 52px;
+    border: 3px solid white;
+}
+
+.game-button:nth-child(1),
+.game-button:nth-child(2),
+.game-button:nth-child(3) {
+    border-top: none;
+}
+
+.game-button:nth-child(1),
+.game-button:nth-child(4),
+.game-button:nth-child(7) {
+    border-left: none;
+}
+
+.game-button:nth-child(7),
+.game-button:nth-child(8),
+.game-button:nth-child(9) {
+    border-bottom: none;
+}
+
+.game-button:nth-child(3),
+.game-button:nth-child(6),
+.game-button:nth-child(9) {
+    border-right: none;
+}
+
