@@ -89,3 +89,19 @@ button {
     border-right: none;
 }
 
+.game-button > * {
+    font-size: 24px;
+    background-color: rgb(25, 25, 25);
+    border-style: none;
+    border-radius: 8px;
+    padding: 18px 24px;
+    cursor: pointer;
+}
+
+.game-button > *:empty {
+    padding: 32px;
+}
+
+.game-button > *:active {
+    transform: translateY(4px);
+}
