@@ -89,7 +89,7 @@ button {
     border-right: none;
 }
 
-.game-button > * {
+.btn {
     font-size: 24px;
     background-color: rgb(25, 25, 25);
     border-style: none;
@@ -98,11 +98,11 @@ button {
     cursor: pointer;
 }
 
-.game-button > *:empty {
+.btn:empty {
     padding: 32px;
 }
 
-.game-button > *:active {
+.btn:active {
     transform: translateY(4px);
 }
 
