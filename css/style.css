@@ -15,7 +15,6 @@ body {
 body {
     color: white;
     background-color: black;
-    padding: 16px;
 }
 
 button {
@@ -28,7 +27,7 @@ button {
     grid-template-rows: 1fr 1fr 8fr 1fr;
     align-items: center;
     gap: 16px;
-    padding: 32px;
+    padding: 16px;
     text-transform: uppercase;
 }
 
@@ -111,7 +110,7 @@ button {
     font-size: 24px;
     border-style: none;
     border-radius: 4px;
-    padding: 12px 24px;
+    padding: 8px 24px;
     cursor: pointer;
 }
 
