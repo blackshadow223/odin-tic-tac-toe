@@ -1,4 +1,39 @@
 
+const Events = (function() {
+    // Initialize
+    const events = {};
+
+    // API
+    function on(eventName, handler) {
+        if (events[eventName]) {
+            events[eventName].push(handler);
+        } else {
+            events[eventName] = [handler];
+        }
+    }
+
+    function off(eventName, handler) {
+        if (events[eventName]) {
+            const index = events[eventName].indexOf(handler);
+            events[eventName].splice(index, 1);
+        }
+    }
+
+    function emit(eventName, data) {
+        if (events[eventName]) {
+            events[eventName].forEach(handler => {
+                handler(data);
+            });
+        }
+    }
+
+    return {
+        on,
+        off,
+        emit
+    };
+})()
+
 function GameBoard() {
     // Initialize
     const board = [];
