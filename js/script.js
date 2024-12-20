@@ -94,6 +94,7 @@ function GameLogic() {
         } else {
             activeMark = markers[0];
         }
+        Events.emit("activeMarkChanged", null);
     }
 
     function playRound(row, column) {
@@ -128,6 +129,7 @@ function DOMLogic() {
     gameDisplay.addEventListener("click", _boardHandler);
     playerNames.addEventListener("dblclick", _nameHandler);
     resetBtn.addEventListener("click", _resetHandler);
+    Events.on("activeMarkChanged", _switchActivePlayer);
 
     // Logic
     function _render() {
@@ -164,6 +166,16 @@ function DOMLogic() {
 
     function _resetHandler(event) {
         return;
+    }
+
+    function _switchActivePlayer(data) {
+        if (playerOne.className === "active") {
+            playerOne.removeAttribute("class");
+            playerTwo.setAttribute("class", "active");
+        } else {
+            playerOne.setAttribute("class", "active");
+            playerTwo.removeAttribute("class");
+        }
     }
 }
 
