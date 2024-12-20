@@ -169,16 +169,16 @@ function DOMLogic() {
         }
     }
 
-    function _nameHandler(event) {
+    function _nameHandler() {
         return;
     }
 
-    function _resetHandler(event) {
+    function _resetHandler() {
         game.reset();
         _render();
     }
 
-    function _switchActivePlayer(data) {
+    function _switchActivePlayer() {
         if (playerOne.className === "active") {
             playerOne.removeAttribute("class");
             playerTwo.setAttribute("class", "active");
