@@ -88,7 +88,7 @@ function GameLogic() {
         return activeMark;
     }
 
-    function switchActiveMarker() {
+    function _switchActiveMarker() {
         if (activeMark === markers[0]) {
             activeMark = markers[1];
         } else {
@@ -102,7 +102,7 @@ function GameLogic() {
             // Here comes the win logic for the game
             // ...
 
-            switchActiveMarker();
+            _switchActiveMarker();
         }
     }
 
