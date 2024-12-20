@@ -106,9 +106,18 @@ function GameLogic() {
         }
     }
 
+    function reset() {
+        board.resetBoard();
+
+        if (activeMark !== markers[0]) {
+            _switchActiveMarker();
+        }
+    }
+
     return {
         getActiveMarker,
         playRound,
+        reset,
         getBoard: board.getBoard
     };
 }
@@ -165,7 +174,8 @@ function DOMLogic() {
     }
 
     function _resetHandler(event) {
-        return;
+        game.reset();
+        _render();
     }
 
     function _switchActivePlayer(data) {
