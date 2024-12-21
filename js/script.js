@@ -187,6 +187,10 @@ function DOMLogic() {
 
     function _resetHandler() {
         game.reset();
+
+        playerOne.textContent = "Player 1";
+        playerTwo.textContent = "Player 2";
+
         _render();
     }
 
