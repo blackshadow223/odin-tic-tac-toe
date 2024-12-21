@@ -102,6 +102,10 @@ function GameLogic() {
             // Here comes the win logic for the game
             // ...
 
+            if (true) {
+                Events.emit("declaredWinner", [0, 4, 8]);
+            }
+
             _switchActiveMarker();
         }
     }
@@ -139,6 +143,7 @@ function DOMLogic() {
     playerNames.addEventListener("dblclick", _nameHandler);
     resetBtn.addEventListener("click", _resetHandler);
     Events.on("activeMarkChanged", _switchActivePlayer);
+    Events.on("declaredWinner", _declareWinner);
 
     // Logic
     function _render() {
@@ -191,6 +196,11 @@ function DOMLogic() {
         playerOne.textContent = "Player 1";
         playerTwo.textContent = "Player 2";
 
+        Array.from(gameDisplay.children).forEach(element => {
+            element.style.padding = "";
+            element.firstChild.style.padding = "";
+        });
+
         _render();
     }
 
@@ -202,6 +212,15 @@ function DOMLogic() {
             playerOne.setAttribute("class", "active");
             playerTwo.removeAttribute("class");
         }
+    }
+
+    function _declareWinner(data) {
+        data.forEach(value => {
+            const element = gameDisplay.children[value];
+            element.style.padding = "20px";
+            element.firstChild.style.padding = "22px 28px";
+            element.firstChild.style.fontSize = "24px";
+        });
     }
 }
 
