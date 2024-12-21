@@ -102,8 +102,44 @@ function GameLogic() {
             // Here comes the win logic for the game
             // ...
 
-            if (true) {
-                Events.emit("declaredWinner", [0, 4, 8]);
+            const Board = board.getBoard();
+            const positions = {};
+
+            Board.forEach((array, i) => {
+                array.forEach((value, j) => {
+                    if (value) {
+                        if (positions[value]) {
+                            positions[value].push(i * 3 + j);
+                        } else {
+                            positions[value] = [i * 3 + j];
+                        }
+                    }
+                });
+            });
+
+            const winPositions = [
+                [0, 1, 2],
+                [3, 4, 5],
+                [6, 7, 8],
+                [0, 3, 6],
+                [1, 4, 7],
+                [2, 5, 8],
+                [0, 4, 8],
+                [2, 4, 6]
+            ];
+
+            for (let mark in positions) {
+                const pos = positions[mark];
+
+                winPositions.forEach(wins => {
+                    if (
+                        pos.includes(wins[0]) &&
+                        pos.includes(wins[1]) &&
+                        pos.includes(wins[2])
+                    ) {
+                        Events.emit("declaredWinner", wins);
+                    }
+                });
             }
 
             _switchActiveMarker();
@@ -199,6 +235,7 @@ function DOMLogic() {
         Array.from(gameDisplay.children).forEach(element => {
             element.style.padding = "";
             element.firstChild.style.padding = "";
+            element.firstChild.removeAttribute("disabled");
         });
 
         _render();
@@ -220,6 +257,10 @@ function DOMLogic() {
             element.style.padding = "20px";
             element.firstChild.style.padding = "22px 28px";
             element.firstChild.style.fontSize = "24px";
+        });
+
+        Array.from(gameDisplay.children).forEach(element => {
+            element.firstChild.setAttribute("disabled", "");
         });
     }
 }
