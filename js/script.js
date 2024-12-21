@@ -169,8 +169,20 @@ function DOMLogic() {
         }
     }
 
-    function _nameHandler() {
-        return;
+    function _nameHandler(event) {
+        if (event.target.id === "player1") {
+            let name = prompt("Enter Name for Player 1: ");
+
+            if (name) {
+                playerOne.textContent = name;
+            }
+        } else if (event.target.id === "player2") {
+            let name = prompt("Enter Name for Player 2: ");
+
+            if (name) {
+                playerTwo.textContent = name;
+            }
+        }
     }
 
     function _resetHandler() {
