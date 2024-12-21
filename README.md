@@ -5,5 +5,5 @@ curriculum [The Odin Project](https://www.theodinproject.com/).
 This project requires the use of Modular Patters that I
 should've learned from the lessons of the course.
 
-I'll do my best.
+I have done my best.
 
